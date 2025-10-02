@@ -2,7 +2,11 @@ import { Moon, Sun } from "lucide-react";
 import { Button } from "./ui/button";
 import { useEffect, useState } from "react";
 
-export const Header = () => {
+interface HeaderProps {
+  onGetStartedClick: () => void;
+}
+
+export const Header = ({ onGetStartedClick }: HeaderProps) => {
   const [theme, setTheme] = useState<"light" | "dark">("light");
 
   useEffect(() => {
@@ -62,7 +66,7 @@ export const Header = () => {
                 <Sun className="h-5 w-5" />
               )}
             </Button>
-            <Button size="sm" className="hidden sm:inline-flex">
+            <Button size="sm" className="hidden sm:inline-flex" onClick={onGetStartedClick}>
               Get Started
             </Button>
           </div>

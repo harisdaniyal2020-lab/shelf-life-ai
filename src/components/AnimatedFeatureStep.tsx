@@ -1,0 +1,26 @@
+import { LucideIcon } from "lucide-react";
+
+interface AnimatedFeatureStepProps {
+  number: string;
+  title: string;
+  description: string;
+  icon: LucideIcon;
+  animationClass: string;
+}
+
+export const AnimatedFeatureStep = ({ number, title, description, icon: Icon, animationClass }: AnimatedFeatureStepProps) => {
+  return (
+    <div className="flex flex-col items-center text-center space-y-4 animate-fade-in">
+      <div className="relative group">
+        <div className="w-20 h-20 rounded-full bg-primary/10 flex items-center justify-center">
+          <Icon className={`w-10 h-10 text-primary transition-all duration-300 ${animationClass}`} />
+        </div>
+        <div className="absolute -top-2 -right-2 w-8 h-8 rounded-full bg-primary text-primary-foreground flex items-center justify-center text-sm font-bold">
+          {number}
+        </div>
+      </div>
+      <h3 className="text-xl font-semibold">{title}</h3>
+      <p className="text-muted-foreground max-w-xs">{description}</p>
+    </div>
+  );
+};

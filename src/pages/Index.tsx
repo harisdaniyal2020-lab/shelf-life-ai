@@ -1,34 +1,55 @@
+import { useState } from "react";
 import { Header } from "@/components/Header";
 import { Button } from "@/components/ui/button";
-import { PricingCard } from "@/components/PricingCard";
+import { ExpandablePricingCard } from "@/components/ExpandablePricingCard";
 import { FAQItem } from "@/components/FAQItem";
-import { FeatureStep } from "@/components/FeatureStep";
+import { AnimatedFeatureStep } from "@/components/AnimatedFeatureStep";
+import { ContactForm } from "@/components/ContactForm";
+import { LegalModal } from "@/components/LegalModal";
 import { Accordion } from "@/components/ui/accordion";
-import { ScanBarcode, Bell, ShoppingCart, TrendingDown, Clock, ChefHat, Shield, Sparkles } from "lucide-react";
+import { ScanBarcode, Bell, ShoppingCart, TrendingDown, Clock, ChefHat, Shield, Sparkles, Facebook, Twitter, Instagram, Linkedin } from "lucide-react";
 import heroImage from "@/assets/hero-illustration.png";
 import mariaImage from "@/assets/maria-testimonial.jpg";
 
 const Index = () => {
+  const [isContactFormOpen, setIsContactFormOpen] = useState(false);
+  const [legalModalOpen, setLegalModalOpen] = useState(false);
+  const [legalModalType, setLegalModalType] = useState<"terms" | "privacy">("terms");
+
+  const scrollToPricing = () => {
+    const element = document.getElementById("pricing");
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
+  const openLegalModal = (type: "terms" | "privacy") => {
+    setLegalModalType(type);
+    setLegalModalOpen(true);
+  };
+
   return (
     <div className="min-h-screen bg-background">
-      <Header />
+      <Header onGetStartedClick={() => setIsContactFormOpen(true)} />
+      <ContactForm open={isContactFormOpen} onOpenChange={setIsContactFormOpen} />
+      <LegalModal open={legalModalOpen} onOpenChange={setLegalModalOpen} type={legalModalType} />
       
       {/* Hero Section */}
       <section className="pt-32 pb-20 px-4 sm:px-6 lg:px-8">
-        <div className="container mx-auto">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <div className="space-y-8 animate-fade-in">
+        <div className="container mx-auto max-w-6xl">
+          <div className="flex flex-col items-center text-center space-y-12">
+            <div className="space-y-8 animate-fade-in max-w-4xl">
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight">
-                Never Run Out of Essentials. Automatically Track & Manage All Your Food, Personal Care, and Cleaning Supplies.
+                Your Home, Never Empty Again.
               </h1>
-              <p className="text-xl text-muted-foreground">
-                Simplify your home life, reduce waste, and save money with intelligent inventory management.
+              <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+                Track food, toiletries, and cleaners automatically. Get alerts before you run out.
               </p>
-              <Button size="lg" className="text-lg px-8 py-6 h-auto">
+              <Button size="lg" className="text-lg px-8 py-6 h-auto" onClick={scrollToPricing}>
                 Buy the Service
               </Button>
             </div>
-            <div className="animate-fade-in">
+            <div className="animate-fade-in w-full max-w-3xl">
               <img 
                 src={heroImage} 
                 alt="Smart home inventory management system" 
@@ -40,28 +61,30 @@ const Index = () => {
       </section>
 
       {/* Social Proof */}
-      <section className="py-12 px-4 sm:px-6 lg:px-8 bg-muted/50">
-        <div className="container mx-auto">
-          <div className="flex flex-col md:flex-row items-center justify-center gap-8 animate-slide-in">
-            <div className="flex items-center gap-4">
-              <span className="text-sm font-semibold text-muted-foreground">Featured on</span>
-              <div className="flex gap-6">
-                <span className="font-bold text-lg">LinkedIn</span>
-                <span className="font-bold text-lg">Apartment Therapy</span>
+      <section className="py-16 px-4 sm:px-6 lg:px-8 bg-muted/30 border-y border-border">
+        <div className="container mx-auto max-w-5xl">
+          <div className="flex flex-col md:flex-row items-start justify-between gap-12 animate-slide-in">
+            <div className="flex flex-col gap-3">
+              <h3 className="text-2xl font-bold text-foreground">Featured On</h3>
+              <div className="flex flex-col gap-2 pl-4">
+                <span className="font-semibold text-lg text-foreground">LinkedIn</span>
+                <span className="font-semibold text-lg text-foreground">Apartment Therapy</span>
               </div>
             </div>
-            <div className="border-l border-border pl-8 max-w-2xl">
-              <p className="text-lg italic text-foreground">
-                "Cut our food waste by 60% and never buy double again!"
-              </p>
-              <p className="text-sm text-muted-foreground mt-2">– The Khan Family</p>
+            <div className="flex-1 md:border-l md:border-border md:pl-8">
+              <div className="space-y-3">
+                <p className="text-lg text-foreground leading-relaxed">
+                  "I can't believe how much this has changed our lives! We used to throw away so much expired food and constantly ran out of toilet paper at the worst times. Now, ShelfLife alerts me before anything expires, and I always know exactly what we have. My grocery bills are down, my stress is down, and my family actually thinks I'm organized now!"
+                </p>
+                <p className="text-sm font-semibold text-primary">– The Khan Family, Austin TX</p>
+              </div>
             </div>
           </div>
         </div>
       </section>
 
       {/* Problem Section */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8">
+      <section className="py-24 px-4 sm:px-6 lg:px-8 bg-background">
         <div className="container mx-auto max-w-4xl text-center">
           <h2 className="text-3xl sm:text-4xl font-bold mb-6 animate-fade-in">
             Is Household Management a Constant Juggle?
@@ -75,7 +98,7 @@ const Index = () => {
       </section>
 
       {/* Value / Outcomes Section */}
-      <section id="features" className="py-20 px-4 sm:px-6 lg:px-8 bg-muted/50">
+      <section id="features" className="py-24 px-4 sm:px-6 lg:px-8 bg-muted/50 border-y border-border">
         <div className="container mx-auto">
           <h2 className="text-3xl sm:text-4xl font-bold text-center mb-16 animate-fade-in">
             Unlock a Smarter, More Organized Home
@@ -107,9 +130,9 @@ const Index = () => {
                 text: "Eliminate emergency runs to the store for forgotten items, 90% of the time"
               }
             ].map((benefit, index) => (
-              <div key={index} className="flex gap-4 p-6 bg-card rounded-lg shadow-sm hover:shadow-md transition-shadow animate-fade-in">
-                <benefit.icon className="w-6 h-6 text-primary shrink-0 mt-1" />
-                <p className="text-foreground">{benefit.text}</p>
+              <div key={index} className="flex flex-col items-center text-center gap-4 p-8 bg-card rounded-lg shadow-sm hover:shadow-md transition-shadow animate-fade-in">
+                <benefit.icon className="w-8 h-8 text-primary shrink-0" />
+                <p className="text-foreground leading-relaxed">{benefit.text}</p>
               </div>
             ))}
           </div>
@@ -117,36 +140,39 @@ const Index = () => {
       </section>
 
       {/* How It Works */}
-      <section id="how-it-works" className="py-20 px-4 sm:px-6 lg:px-8">
+      <section id="how-it-works" className="py-24 px-4 sm:px-6 lg:px-8 bg-background">
         <div className="container mx-auto">
           <h2 className="text-3xl sm:text-4xl font-bold text-center mb-16 animate-fade-in">
             Simple Steps to a Smarter Home
           </h2>
           <div className="grid md:grid-cols-3 gap-12 max-w-5xl mx-auto">
-            <FeatureStep 
+            <AnimatedFeatureStep 
               number="1"
               icon={ScanBarcode}
               title="Scan & Add"
               description="Quickly scan grocery receipts, product barcodes (for food, toothpaste, cleaners, etc.), or input items manually."
+              animationClass="group-hover:animate-scan"
             />
-            <FeatureStep 
+            <AnimatedFeatureStep 
               number="2"
               icon={Sparkles}
               title="Smart Tracking"
               description="ShelfLife automatically categorizes items, estimates expiry dates for perishables, and tracks usage patterns for consumables."
+              animationClass="group-hover:animate-twinkle"
             />
-            <FeatureStep 
+            <AnimatedFeatureStep 
               number="3"
               icon={Bell}
               title="Alerts & Suggestions"
               description="Get notifications for expiring food, low stock on essentials, and smart recommendations for reordering or using up items."
+              animationClass="group-hover:animate-ring"
             />
           </div>
         </div>
       </section>
 
       {/* Deep Proof / Testimonial */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-muted/50">
+      <section className="py-24 px-4 sm:px-6 lg:px-8 bg-muted/50 border-y border-border">
         <div className="container mx-auto max-w-5xl">
           <h2 className="text-3xl sm:text-4xl font-bold text-center mb-12 animate-fade-in">
             Real Results, Real Savings
@@ -175,7 +201,7 @@ const Index = () => {
       </section>
 
       {/* FAQ Section */}
-      <section id="faq" className="py-20 px-4 sm:px-6 lg:px-8">
+      <section id="faq" className="py-24 px-4 sm:px-6 lg:px-8 bg-background">
         <div className="container mx-auto max-w-3xl">
           <h2 className="text-3xl sm:text-4xl font-bold text-center mb-12 animate-fade-in">
             Questions? We've Got Answers
@@ -197,7 +223,7 @@ const Index = () => {
               answer="Yes, easily share your household inventory with family members, so everyone is on the same page for shopping and usage."
             />
           </Accordion>
-          <div className="mt-12 p-6 bg-card rounded-lg border border-border text-center">
+          <div className="mt-12 p-6 bg-card rounded-lg border border-border text-center shadow-sm">
             <Shield className="w-12 h-12 text-primary mx-auto mb-4" />
             <p className="text-foreground font-semibold mb-2">Your Data is Secure</p>
             <p className="text-sm text-muted-foreground">
@@ -208,14 +234,14 @@ const Index = () => {
       </section>
 
       {/* Pricing Section */}
-      <section id="pricing" className="py-20 px-4 sm:px-6 lg:px-8 bg-muted/50">
+      <section id="pricing" className="py-24 px-4 sm:px-6 lg:px-8 bg-muted/50 border-y border-border">
         <div className="container mx-auto">
           <h2 className="text-3xl sm:text-4xl font-bold text-center mb-4 animate-fade-in">
             Choose Your ShelfLife Plan
           </h2>
           <p className="text-center text-muted-foreground mb-16">Start with a 30-day free trial. No credit card required.</p>
           <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-            <PricingCard 
+            <ExpandablePricingCard 
               title="Home Hub"
               price="$6.99"
               description="billed annually, save 15%"
@@ -227,9 +253,20 @@ const Index = () => {
                 "Receipt & Barcode Scanning",
                 "Smart Shopping Lists"
               ]}
+              detailedFeatures={[
+                "Multi-location tracking (pantry, fridge, bathroom, garage)",
+                "Custom categories and tags",
+                "Recipe suggestions based on available ingredients",
+                "Meal planning assistant",
+                "Product usage tips and hacks",
+                "Email and push notifications",
+                "Mobile app access (iOS & Android)",
+                "Export shopping lists to your phone"
+              ]}
               highlighted={true}
+              onCTAClick={() => setIsContactFormOpen(true)}
             />
-            <PricingCard 
+            <ExpandablePricingCard 
               title="Family Sync"
               price="$10.99"
               description="up to 5 users"
@@ -241,39 +278,80 @@ const Index = () => {
                 "Family Usage Analytics",
                 "Priority Support"
               ]}
+              detailedFeatures={[
+                "Real-time sync across all family devices",
+                "Individual user profiles with permissions",
+                "Collaborative shopping lists",
+                "Activity log to see who added/removed items",
+                "Family consumption patterns and insights",
+                "Shared recipe collections",
+                "Priority email and chat support",
+                "Early access to new features"
+              ]}
+              onCTAClick={() => setIsContactFormOpen(true)}
             />
           </div>
         </div>
       </section>
 
       {/* Final CTA */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8">
+      <section className="py-24 px-4 sm:px-6 lg:px-8 bg-background">
         <div className="container mx-auto max-w-4xl text-center space-y-8">
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold animate-fade-in">
-            Stop Waste & Stay Stocked – Get ShelfLife AI Free for 30 Days
-          </h2>
-          <Button size="lg" className="text-lg px-12 py-6 h-auto animate-fade-in">
+          <div className="space-y-4">
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold animate-fade-in">
+              Stop Waste & Stay Stocked
+            </h2>
+            <p className="text-xl sm:text-2xl text-muted-foreground animate-fade-in">
+              Get ShelfLife AI Free for 30 Days
+            </p>
+          </div>
+          <Button size="lg" className="text-lg px-12 py-6 h-auto animate-fade-in" onClick={() => setIsContactFormOpen(true)}>
             Start Your Free Trial
           </Button>
         </div>
       </section>
 
       {/* Footer */}
-      <footer className="py-12 px-4 sm:px-6 lg:px-8 border-t border-border">
+      <footer className="py-12 px-4 sm:px-6 lg:px-8 border-t border-border bg-muted/30">
         <div className="container mx-auto">
-          <div className="flex flex-col md:flex-row justify-between items-center gap-6">
-            <p className="text-sm text-muted-foreground">
-              © 2025 ShelfLife AI. All rights reserved.
-            </p>
-            <div className="flex gap-8">
-              <a href="#" className="text-sm text-muted-foreground hover:text-primary transition-colors">
-                Privacy Policy
+          <div className="flex flex-col gap-8">
+            <div className="flex flex-col md:flex-row justify-between items-center gap-6">
+              <p className="text-sm text-muted-foreground">
+                © 2025 ShelfLife AI. All rights reserved.
+              </p>
+              <div className="flex gap-8">
+                <button 
+                  onClick={() => openLegalModal("privacy")}
+                  className="text-sm text-muted-foreground hover:text-primary transition-colors"
+                >
+                  Privacy Policy
+                </button>
+                <button 
+                  onClick={() => openLegalModal("terms")}
+                  className="text-sm text-muted-foreground hover:text-primary transition-colors"
+                >
+                  Terms of Service
+                </button>
+                <button 
+                  onClick={() => setIsContactFormOpen(true)}
+                  className="text-sm text-muted-foreground hover:text-primary transition-colors"
+                >
+                  Contact Us
+                </button>
+              </div>
+            </div>
+            <div className="flex justify-center gap-6">
+              <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors" aria-label="Facebook">
+                <Facebook className="w-5 h-5" />
               </a>
-              <a href="#" className="text-sm text-muted-foreground hover:text-primary transition-colors">
-                Terms of Service
+              <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors" aria-label="Twitter">
+                <Twitter className="w-5 h-5" />
               </a>
-              <a href="#" className="text-sm text-muted-foreground hover:text-primary transition-colors">
-                Contact Us
+              <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors" aria-label="Instagram">
+                <Instagram className="w-5 h-5" />
+              </a>
+              <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors" aria-label="LinkedIn">
+                <Linkedin className="w-5 h-5" />
               </a>
             </div>
           </div>
