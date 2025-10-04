@@ -7,10 +7,10 @@ interface HeaderProps {
 }
 
 export const Header = ({ onGetStartedClick }: HeaderProps) => {
-  const [theme, setTheme] = useState<"light" | "dark">("light");
+  const [theme, setTheme] = useState<"light" | "dark">("dark");
 
   useEffect(() => {
-    const savedTheme = localStorage.getItem("theme") as "light" | "dark" || "light";
+    const savedTheme = localStorage.getItem("theme") as "light" | "dark" || "dark";
     setTheme(savedTheme);
     document.documentElement.classList.toggle("dark", savedTheme === "dark");
   }, []);
@@ -67,7 +67,7 @@ export const Header = ({ onGetStartedClick }: HeaderProps) => {
               )}
             </Button>
             <Button size="sm" className="hidden sm:inline-flex" onClick={onGetStartedClick}>
-              Get Started
+              Get Started for Free
             </Button>
           </div>
         </div>

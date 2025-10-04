@@ -8,7 +8,7 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    --background: 0 0% 98%;
+    --background: 0 0% 96%;
     --foreground: 180 10% 15%;
 
     --card: 0 0% 100%;
@@ -23,7 +23,7 @@ All colors MUST be HSL.
     --secondary: 180 20% 90%;
     --secondary-foreground: 180 97% 15%;
 
-    --muted: 180 10% 95%;
+    --muted: 180 10% 92%;
     --muted-foreground: 180 5% 45%;
 
     --accent: 180 80% 25%;
@@ -85,6 +85,11 @@ All colors MUST be HSL.
 
   body {
     @apply bg-background text-foreground;
+    background-image: url('/src/assets/background-pattern.png');
+    background-size: 800px 800px;
+    background-repeat: repeat;
+    background-attachment: fixed;
+    background-position: center;
   }
 }
 

@@ -5,14 +5,20 @@ import { ExpandablePricingCard } from "@/components/ExpandablePricingCard";
 import { FAQItem } from "@/components/FAQItem";
 import { AnimatedFeatureStep } from "@/components/AnimatedFeatureStep";
 import { ContactForm } from "@/components/ContactForm";
+import { NewsletterForm } from "@/components/NewsletterForm";
 import { LegalModal } from "@/components/LegalModal";
 import { Accordion } from "@/components/ui/accordion";
-import { ScanBarcode, Bell, ShoppingCart, TrendingDown, Clock, ChefHat, Shield, Sparkles, Facebook, Twitter, Instagram, Linkedin } from "lucide-react";
+import { ScanBarcode, Bell, ShoppingCart, TrendingDown, Clock, ChefHat, Shield, Sparkles, Facebook, Instagram, Linkedin, X } from "lucide-react";
 import heroImage from "@/assets/hero-illustration.png";
 import mariaImage from "@/assets/maria-testimonial.jpg";
+import techcrunchLogo from "@/assets/logo-techcrunch.png";
+import producthuntLogo from "@/assets/logo-producthunt.png";
+import fastcompanyLogo from "@/assets/logo-fastcompany.png";
+import thevergeLogo from "@/assets/logo-theverge.png";
 
 const Index = () => {
   const [isContactFormOpen, setIsContactFormOpen] = useState(false);
+  const [isNewsletterOpen, setIsNewsletterOpen] = useState(false);
   const [legalModalOpen, setLegalModalOpen] = useState(false);
   const [legalModalType, setLegalModalType] = useState<"terms" | "privacy">("terms");
 
@@ -29,9 +35,10 @@ const Index = () => {
   };
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-background/95">
       <Header onGetStartedClick={() => setIsContactFormOpen(true)} />
       <ContactForm open={isContactFormOpen} onOpenChange={setIsContactFormOpen} />
+      <NewsletterForm open={isNewsletterOpen} onOpenChange={setIsNewsletterOpen} />
       <LegalModal open={legalModalOpen} onOpenChange={setLegalModalOpen} type={legalModalType} />
       
       {/* Hero Section */}
@@ -39,14 +46,14 @@ const Index = () => {
         <div className="container mx-auto max-w-6xl">
           <div className="flex flex-col items-center text-center space-y-12">
             <div className="space-y-8 animate-fade-in max-w-4xl">
-              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight">
+              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight hover:scale-105 transition-transform duration-300">
                 Your Home, Never Empty Again.
               </h1>
-              <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-                Track food, toiletries, and cleaners automatically. Get alerts before you run out.
+              <p className="text-xl text-muted-foreground max-w-2xl mx-auto animate-fade-in">
+                Track food, toiletries, and cleaners automatically—alerts before you run out.
               </p>
-              <Button size="lg" className="text-lg px-8 py-6 h-auto" onClick={scrollToPricing}>
-                Buy the Service
+              <Button size="lg" className="text-lg px-8 py-6 h-auto hover:scale-105 transition-transform duration-300" onClick={scrollToPricing}>
+                Get Started for Free
               </Button>
             </div>
             <div className="animate-fade-in w-full max-w-3xl">
@@ -61,18 +68,28 @@ const Index = () => {
       </section>
 
       {/* Social Proof */}
-      <section className="py-16 px-4 sm:px-6 lg:px-8 bg-muted/30 border-y border-border">
-        <div className="container mx-auto max-w-5xl">
-          <div className="flex flex-col md:flex-row items-start justify-between gap-12 animate-slide-in">
-            <div className="flex flex-col gap-3">
-              <h3 className="text-2xl font-bold text-foreground">Featured On</h3>
-              <div className="flex flex-col gap-2 pl-4">
-                <span className="font-semibold text-lg text-foreground">LinkedIn</span>
-                <span className="font-semibold text-lg text-foreground">Apartment Therapy</span>
+      <section className="py-16 px-4 sm:px-6 lg:px-8 bg-card/80 backdrop-blur-sm border-y border-border">
+        <div className="container mx-auto max-w-6xl">
+          <div className="flex flex-col md:flex-row items-start gap-12 animate-slide-in">
+            <div className="flex flex-col gap-6 md:w-1/3">
+              <h3 className="text-3xl font-bold text-foreground animate-fade-in">Featured On</h3>
+              <div className="grid grid-cols-2 gap-4">
+                <div className="bg-background/80 p-4 rounded-lg hover:scale-105 transition-transform duration-300 flex items-center justify-center">
+                  <img src={techcrunchLogo} alt="TechCrunch" className="w-full h-12 object-contain" />
+                </div>
+                <div className="bg-background/80 p-4 rounded-lg hover:scale-105 transition-transform duration-300 flex items-center justify-center">
+                  <img src={producthuntLogo} alt="Product Hunt" className="w-full h-12 object-contain" />
+                </div>
+                <div className="bg-background/80 p-4 rounded-lg hover:scale-105 transition-transform duration-300 flex items-center justify-center">
+                  <img src={fastcompanyLogo} alt="Fast Company" className="w-full h-12 object-contain" />
+                </div>
+                <div className="bg-background/80 p-4 rounded-lg hover:scale-105 transition-transform duration-300 flex items-center justify-center">
+                  <img src={thevergeLogo} alt="The Verge" className="w-full h-12 object-contain" />
+                </div>
               </div>
             </div>
             <div className="flex-1 md:border-l md:border-border md:pl-8">
-              <div className="space-y-3">
+              <div className="space-y-3 animate-fade-in">
                 <p className="text-lg text-foreground leading-relaxed">
                   "I can't believe how much this has changed our lives! We used to throw away so much expired food and constantly ran out of toilet paper at the worst times. Now, ShelfLife alerts me before anything expires, and I always know exactly what we have. My grocery bills are down, my stress is down, and my family actually thinks I'm organized now!"
                 </p>
@@ -84,9 +101,9 @@ const Index = () => {
       </section>
 
       {/* Problem Section */}
-      <section className="py-24 px-4 sm:px-6 lg:px-8 bg-background">
+      <section className="py-24 px-4 sm:px-6 lg:px-8 bg-background/95">
         <div className="container mx-auto max-w-4xl text-center">
-          <h2 className="text-3xl sm:text-4xl font-bold mb-6 animate-fade-in">
+          <h2 className="text-3xl sm:text-4xl font-bold mb-6 animate-fade-in hover:scale-105 transition-transform duration-300">
             Is Household Management a Constant Juggle?
           </h2>
           <p className="text-lg text-muted-foreground leading-relaxed animate-fade-in">
@@ -98,9 +115,9 @@ const Index = () => {
       </section>
 
       {/* Value / Outcomes Section */}
-      <section id="features" className="py-24 px-4 sm:px-6 lg:px-8 bg-muted/50 border-y border-border">
+      <section id="features" className="py-24 px-4 sm:px-6 lg:px-8 bg-card/70 backdrop-blur-sm border-y border-border">
         <div className="container mx-auto">
-          <h2 className="text-3xl sm:text-4xl font-bold text-center mb-16 animate-fade-in">
+          <h2 className="text-3xl sm:text-4xl font-bold text-center mb-16 animate-fade-in hover:scale-105 transition-transform duration-300">
             Unlock a Smarter, More Organized Home
           </h2>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
@@ -130,8 +147,8 @@ const Index = () => {
                 text: "Eliminate emergency runs to the store for forgotten items, 90% of the time"
               }
             ].map((benefit, index) => (
-              <div key={index} className="flex flex-col items-center text-center gap-4 p-8 bg-card rounded-lg shadow-sm hover:shadow-md transition-shadow animate-fade-in">
-                <benefit.icon className="w-8 h-8 text-primary shrink-0" />
+              <div key={index} className="flex flex-col items-center justify-center text-center gap-4 p-8 bg-background/80 rounded-lg shadow-sm hover:shadow-xl hover:scale-105 transition-all duration-300 animate-fade-in">
+                <benefit.icon className="w-8 h-8 text-primary shrink-0 hover:scale-125 transition-transform duration-300" />
                 <p className="text-foreground leading-relaxed">{benefit.text}</p>
               </div>
             ))}
@@ -140,9 +157,9 @@ const Index = () => {
       </section>
 
       {/* How It Works */}
-      <section id="how-it-works" className="py-24 px-4 sm:px-6 lg:px-8 bg-background">
+      <section id="how-it-works" className="py-24 px-4 sm:px-6 lg:px-8 bg-background/95">
         <div className="container mx-auto">
-          <h2 className="text-3xl sm:text-4xl font-bold text-center mb-16 animate-fade-in">
+          <h2 className="text-3xl sm:text-4xl font-bold text-center mb-16 animate-fade-in hover:scale-105 transition-transform duration-300">
             Simple Steps to a Smarter Home
           </h2>
           <div className="grid md:grid-cols-3 gap-12 max-w-5xl mx-auto">
@@ -172,9 +189,9 @@ const Index = () => {
       </section>
 
       {/* Deep Proof / Testimonial */}
-      <section className="py-24 px-4 sm:px-6 lg:px-8 bg-muted/50 border-y border-border">
+      <section className="py-24 px-4 sm:px-6 lg:px-8 bg-card/70 backdrop-blur-sm border-y border-border">
         <div className="container mx-auto max-w-5xl">
-          <h2 className="text-3xl sm:text-4xl font-bold text-center mb-12 animate-fade-in">
+          <h2 className="text-3xl sm:text-4xl font-bold text-center mb-12 animate-fade-in hover:scale-105 transition-transform duration-300">
             Real Results, Real Savings
           </h2>
           <div className="grid md:grid-cols-2 gap-12 items-center">
@@ -201,9 +218,9 @@ const Index = () => {
       </section>
 
       {/* FAQ Section */}
-      <section id="faq" className="py-24 px-4 sm:px-6 lg:px-8 bg-background">
+      <section id="faq" className="py-24 px-4 sm:px-6 lg:px-8 bg-background/95">
         <div className="container mx-auto max-w-3xl">
-          <h2 className="text-3xl sm:text-4xl font-bold text-center mb-12 animate-fade-in">
+          <h2 className="text-3xl sm:text-4xl font-bold text-center mb-12 animate-fade-in hover:scale-105 transition-transform duration-300">
             Questions? We've Got Answers
           </h2>
           <Accordion type="single" collapsible className="space-y-4">
@@ -234,9 +251,9 @@ const Index = () => {
       </section>
 
       {/* Pricing Section */}
-      <section id="pricing" className="py-24 px-4 sm:px-6 lg:px-8 bg-muted/50 border-y border-border">
+      <section id="pricing" className="py-24 px-4 sm:px-6 lg:px-8 bg-card/70 backdrop-blur-sm border-y border-border">
         <div className="container mx-auto">
-          <h2 className="text-3xl sm:text-4xl font-bold text-center mb-4 animate-fade-in">
+          <h2 className="text-3xl sm:text-4xl font-bold text-center mb-4 animate-fade-in hover:scale-105 transition-transform duration-300">
             Choose Your ShelfLife Plan
           </h2>
           <p className="text-center text-muted-foreground mb-16">Start with a 30-day free trial. No credit card required.</p>
@@ -295,24 +312,24 @@ const Index = () => {
       </section>
 
       {/* Final CTA */}
-      <section className="py-24 px-4 sm:px-6 lg:px-8 bg-background">
+      <section className="py-24 px-4 sm:px-6 lg:px-8 bg-background/95">
         <div className="container mx-auto max-w-4xl text-center space-y-8">
           <div className="space-y-4">
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold animate-fade-in">
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold animate-fade-in hover:scale-105 transition-transform duration-300">
               Stop Waste & Stay Stocked
             </h2>
             <p className="text-xl sm:text-2xl text-muted-foreground animate-fade-in">
               Get ShelfLife AI Free for 30 Days
             </p>
           </div>
-          <Button size="lg" className="text-lg px-12 py-6 h-auto animate-fade-in" onClick={() => setIsContactFormOpen(true)}>
-            Start Your Free Trial
+          <Button size="lg" className="text-lg px-12 py-6 h-auto animate-fade-in hover:scale-105 transition-transform duration-300" onClick={() => setIsNewsletterOpen(true)}>
+            Subscribe to the Newsletter
           </Button>
         </div>
       </section>
 
       {/* Footer */}
-      <footer className="py-12 px-4 sm:px-6 lg:px-8 border-t border-border bg-muted/30">
+      <footer className="py-12 px-4 sm:px-6 lg:px-8 border-t border-border bg-card/70 backdrop-blur-sm">
         <div className="container mx-auto">
           <div className="flex flex-col gap-8">
             <div className="flex flex-col md:flex-row justify-between items-center gap-6">
@@ -322,35 +339,35 @@ const Index = () => {
               <div className="flex gap-8">
                 <button 
                   onClick={() => openLegalModal("privacy")}
-                  className="text-sm text-muted-foreground hover:text-primary transition-colors"
+                  className="text-sm text-muted-foreground hover:text-primary transition-all hover:scale-110 duration-300"
                 >
                   Privacy Policy
                 </button>
                 <button 
                   onClick={() => openLegalModal("terms")}
-                  className="text-sm text-muted-foreground hover:text-primary transition-colors"
+                  className="text-sm text-muted-foreground hover:text-primary transition-all hover:scale-110 duration-300"
                 >
                   Terms of Service
                 </button>
                 <button 
                   onClick={() => setIsContactFormOpen(true)}
-                  className="text-sm text-muted-foreground hover:text-primary transition-colors"
+                  className="text-sm text-muted-foreground hover:text-primary transition-all hover:scale-110 duration-300"
                 >
                   Contact Us
                 </button>
               </div>
             </div>
             <div className="flex justify-center gap-6">
-              <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors" aria-label="Facebook">
+              <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-all hover:scale-125 duration-300" aria-label="Facebook">
                 <Facebook className="w-5 h-5" />
               </a>
-              <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors" aria-label="Twitter">
-                <Twitter className="w-5 h-5" />
+              <a href="https://x.com" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-all hover:scale-125 duration-300" aria-label="X (formerly Twitter)">
+                <X className="w-5 h-5" />
               </a>
-              <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors" aria-label="Instagram">
+              <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-all hover:scale-125 duration-300" aria-label="Instagram">
                 <Instagram className="w-5 h-5" />
               </a>
-              <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors" aria-label="LinkedIn">
+              <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-all hover:scale-125 duration-300" aria-label="LinkedIn">
                 <Linkedin className="w-5 h-5" />
               </a>
             </div>

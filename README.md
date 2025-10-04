@@ -1,8 +1,16 @@
-# Welcome to your Lovable project
+# ShelfLife AI - Smart Household Hub
+
+## Elevator Pitch
+
+ShelfLife AI is an intelligent household inventory management system that automatically tracks food, toiletries, and cleaning supplies across your entire home. Using smart barcode scanning, receipt analysis, and AI-powered expiry predictions, it eliminates waste, prevents emergency shopping trips, and saves families hundreds of dollars annually. Never wonder "do we have that?" again—ShelfLife knows exactly what's in your pantry, fridge, bathroom, and garage, alerting you before items expire or run out. It's like having a personal assistant for your household essentials.
+
+## Live Demo
+
+**URL**: https://shelf-life-smart-hub.onrender.com
 
 ## Project info
 
-**URL**: https://lovable.dev/projects/72381070-0edb-49e6-b0de-97d834f53ebe
+**Lovable Project**: https://lovable.dev/projects/72381070-0edb-49e6-b0de-97d834f53ebe
 
 ## How can I edit this code?
 
@@ -54,11 +62,17 @@ npm run dev
 
 This project is built with:
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+- **Gemini AI** — Used to generate the initial concept, content, and structure through AI prompting
+- **Lovable** — No-code/low-code website builder used to design and export the landing page
+- **Vite** — Fast build tool and development server
+- **TypeScript** — Type-safe JavaScript for better code quality
+- **React** — Modern UI framework for building interactive components
+- **shadcn-ui** — Beautiful, accessible component library
+- **Tailwind CSS** — Utility-first CSS framework for rapid styling
+- **Lucide React** — Icon library for consistent iconography
+- **Zod** — TypeScript-first schema validation
+- **GitHub** — Version control and repository management
+- **Render** — Deployment and hosting of the live website
 
 ## How can I deploy this project?
 
