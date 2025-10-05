@@ -8,7 +8,7 @@ import { ContactForm } from "@/components/ContactForm";
 import { NewsletterForm } from "@/components/NewsletterForm";
 import { LegalModal } from "@/components/LegalModal";
 import { Accordion } from "@/components/ui/accordion";
-import { ScanBarcode, Bell, ShoppingCart, TrendingDown, Clock, ChefHat, Shield, Sparkles, Facebook, Instagram, Linkedin, X } from "lucide-react";
+import { ScanBarcode, Bell, ShoppingCart, TrendingDown, Clock, ChefHat, Shield, Sparkles, Facebook, Instagram, Linkedin, X, Star } from "lucide-react";
 import heroImage from "@/assets/hero-illustration.png";
 import mariaImage from "@/assets/maria-testimonial.jpg";
 import techcrunchLogo from "@/assets/logo-techcrunch.png";
@@ -83,8 +83,13 @@ const Index = () => {
             </div>
             <div className="flex-1 md:border-l md:border-border md:pl-8">
               <div className="space-y-3 animate-fade-in">
+                <div className="flex gap-1 mb-2">
+                  {[...Array(5)].map((_, i) => (
+                    <Star key={i} className="w-5 h-5 fill-primary text-primary" />
+                  ))}
+                </div>
                 <p className="text-lg text-foreground leading-relaxed">
-                  "I can't believe how much this has changed our lives! We used to throw away so much expired food and constantly ran out of toilet paper at the worst times. Now, ShelfLife alerts me before anything expires, and I always know exactly what we have. My grocery bills are down, my stress is down, and my family actually thinks I'm organized now!"
+                  "ShelfLife has completely transformed our household! We've cut our grocery bills significantly, never run out of essentials, and waste almost nothing. It's like having a personal inventory manager!"
                 </p>
                 <p className="text-sm font-semibold text-primary">– The Khan Family, Austin TX</p>
               </div>
