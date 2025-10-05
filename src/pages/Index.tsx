@@ -8,13 +8,13 @@ import { ContactForm } from "@/components/ContactForm";
 import { NewsletterForm } from "@/components/NewsletterForm";
 import { LegalModal } from "@/components/LegalModal";
 import { Accordion } from "@/components/ui/accordion";
-import { ScanBarcode, Bell, ShoppingCart, TrendingDown, Clock, ChefHat, Shield, Sparkles, Facebook, Instagram, Linkedin, X, Star } from "lucide-react";
+import { ScanBarcode, Bell, ShoppingCart, TrendingDown, Clock, ChefHat, Shield, Sparkles, Facebook, Instagram, Linkedin, X } from "lucide-react";
 import heroImage from "@/assets/hero-illustration.png";
 import mariaImage from "@/assets/maria-testimonial.jpg";
 import techcrunchLogo from "@/assets/logo-techcrunch.png";
-import redditLogo from "@/assets/logo-reddit.png";
-import mashableLogo from "@/assets/logo-mashable.png";
-import gqLogo from "@/assets/logo-gq.png";
+import producthuntLogo from "@/assets/logo-producthunt.png";
+import fastcompanyLogo from "@/assets/logo-fastcompany.png";
+import thevergeLogo from "@/assets/logo-theverge.png";
 const Index = () => {
   const [isContactFormOpen, setIsContactFormOpen] = useState(false);
   const [isNewsletterOpen, setIsNewsletterOpen] = useState(false);
@@ -71,25 +71,20 @@ const Index = () => {
                   <img src={techcrunchLogo} alt="TechCrunch" className="w-full h-12 object-contain" />
                 </div>
                 <div className="bg-background/80 p-4 rounded-lg hover:scale-105 transition-transform duration-300 flex items-center justify-center">
-                  <img src={redditLogo} alt="Reddit" className="w-full h-12 object-contain" />
+                  <img src={producthuntLogo} alt="Product Hunt" className="w-full h-12 object-contain" />
                 </div>
                 <div className="bg-background/80 p-4 rounded-lg hover:scale-105 transition-transform duration-300 flex items-center justify-center">
-                  <img src={mashableLogo} alt="Mashable" className="w-full h-12 object-contain" />
+                  <img src={fastcompanyLogo} alt="Fast Company" className="w-full h-12 object-contain" />
                 </div>
                 <div className="bg-background/80 p-4 rounded-lg hover:scale-105 transition-transform duration-300 flex items-center justify-center">
-                  <img src={gqLogo} alt="GQ" className="w-full h-12 object-contain" />
+                  <img src={thevergeLogo} alt="The Verge" className="w-full h-12 object-contain" />
                 </div>
               </div>
             </div>
-            <div className="flex-1 md:border-l md:border-border md:pl-8">
+            <div className="flex-1 md:border-l md:border-border md:pl-8 text-justify text-base">
               <div className="space-y-3 animate-fade-in">
-                <div className="flex gap-1 mb-2">
-                  {[...Array(5)].map((_, i) => (
-                    <Star key={i} className="w-5 h-5 fill-primary text-primary" />
-                  ))}
-                </div>
                 <p className="text-lg text-foreground leading-relaxed">
-                  "ShelfLife has completely transformed our household! We've cut our grocery bills significantly, never run out of essentials, and waste almost nothing. It's like having a personal inventory manager!"
+                  "I can't believe how much this has changed our lives! We used to throw away so much expired food and constantly ran out of toilet paper at the worst times. Now, ShelfLife alerts me before anything expires, and I always know exactly what we have. My grocery bills are down, my stress is down, and my family actually thinks I'm organized now!"
                 </p>
                 <p className="text-sm font-semibold text-primary">– The Khan Family, Austin TX</p>
               </div>
