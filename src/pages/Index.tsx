@@ -13,8 +13,8 @@ import heroImage from "@/assets/hero-illustration.png";
 import mariaImage from "@/assets/maria-testimonial.jpg";
 import techcrunchLogo from "@/assets/logo-techcrunch.png";
 import redditLogo from "@/assets/logo-reddit.png";
-import fastcompanyLogo from "@/assets/logo-fastcompany.png";
-import thevergeLogo from "@/assets/logo-theverge.png";
+import mashableLogo from "@/assets/logo-mashable.png";
+import gqLogo from "@/assets/logo-gq.png";
 const Index = () => {
   const [isContactFormOpen, setIsContactFormOpen] = useState(false);
   const [isNewsletterOpen, setIsNewsletterOpen] = useState(false);
@@ -74,10 +74,10 @@ const Index = () => {
                   <img src={redditLogo} alt="Reddit" className="w-full h-12 object-contain" />
                 </div>
                 <div className="bg-background/80 p-4 rounded-lg hover:scale-105 transition-transform duration-300 flex items-center justify-center">
-                  <img src={fastcompanyLogo} alt="Fast Company" className="w-full h-12 object-contain" />
+                  <img src={mashableLogo} alt="Mashable" className="w-full h-12 object-contain" />
                 </div>
                 <div className="bg-background/80 p-4 rounded-lg hover:scale-105 transition-transform duration-300 flex items-center justify-center">
-                  <img src={thevergeLogo} alt="The Verge" className="w-full h-12 object-contain" />
+                  <img src={gqLogo} alt="GQ" className="w-full h-12 object-contain" />
                 </div>
               </div>
             </div>
