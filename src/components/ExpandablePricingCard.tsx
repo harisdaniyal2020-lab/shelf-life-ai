@@ -26,51 +26,51 @@ export const ExpandablePricingCard = ({
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <Card className={`relative ${highlighted ? "border-primary shadow-lg scale-105" : ""} transition-all duration-300 hover:shadow-xl`}>
+    <Card className={`relative ${highlighted ? "border-primary shadow-lg sm:scale-105" : ""} transition-all duration-300 hover:shadow-xl`}>
       {highlighted && (
-        <div className="absolute -top-4 left-1/2 -translate-x-1/2">
-          <span className="bg-primary text-primary-foreground px-4 py-1 rounded-full text-sm font-semibold">
+        <div className="absolute -top-3 sm:-top-4 left-1/2 -translate-x-1/2">
+          <span className="bg-primary text-primary-foreground px-3 py-0.5 sm:px-4 sm:py-1 rounded-full text-xs sm:text-sm font-semibold">
             Most Popular
           </span>
         </div>
       )}
       <CardHeader>
-        <CardTitle className="text-2xl">{title}</CardTitle>
-        <CardDescription className="text-3xl font-bold text-foreground mt-2">
-          {price}<span className="text-base font-normal text-muted-foreground">/month</span>
+        <CardTitle className="text-xl sm:text-2xl">{title}</CardTitle>
+        <CardDescription className="text-2xl sm:text-3xl font-bold text-foreground mt-2">
+          {price}<span className="text-sm sm:text-base font-normal text-muted-foreground">/month</span>
         </CardDescription>
-        <p className="text-sm text-muted-foreground mt-2">{description}</p>
+        <p className="text-xs sm:text-sm text-muted-foreground mt-2">{description}</p>
       </CardHeader>
       <CardContent>
-        <ul className="space-y-3">
+        <ul className="space-y-2 sm:space-y-3">
           {features.map((feature, index) => (
-            <li key={index} className="flex items-start gap-3">
-              <Check className="h-5 w-5 text-primary shrink-0 mt-0.5" />
-              <span className="text-sm text-foreground">{feature}</span>
+            <li key={index} className="flex items-start gap-2 sm:gap-3">
+              <Check className="h-4 w-4 sm:h-5 sm:w-5 text-primary shrink-0 mt-0.5" />
+              <span className="text-xs sm:text-sm text-foreground">{feature}</span>
             </li>
           ))}
         </ul>
         
         {detailedFeatures && detailedFeatures.length > 0 && (
-          <Collapsible open={isOpen} onOpenChange={setIsOpen} className="mt-4">
-            <CollapsibleTrigger className="flex items-center gap-2 text-sm text-primary hover:underline">
+          <Collapsible open={isOpen} onOpenChange={setIsOpen} className="mt-3 sm:mt-4">
+            <CollapsibleTrigger className="flex items-center gap-2 text-xs sm:text-sm text-primary hover:underline">
               {isOpen ? (
                 <>
-                  <ChevronUp className="h-4 w-4" />
+                  <ChevronUp className="h-3 w-3 sm:h-4 sm:w-4" />
                   Show Less
                 </>
               ) : (
                 <>
-                  <ChevronDown className="h-4 w-4" />
+                  <ChevronDown className="h-3 w-3 sm:h-4 sm:w-4" />
                   See All Features
                 </>
               )}
             </CollapsibleTrigger>
-            <CollapsibleContent className="mt-3">
-              <ul className="space-y-2 pl-2 border-l-2 border-muted">
+            <CollapsibleContent className="mt-2 sm:mt-3">
+              <ul className="space-y-1.5 sm:space-y-2 pl-1 sm:pl-2 border-l-2 border-muted">
                 {detailedFeatures.map((feature, index) => (
-                  <li key={index} className="flex items-start gap-3 pl-3">
-                    <Check className="h-4 w-4 text-muted-foreground shrink-0 mt-0.5" />
+                  <li key={index} className="flex items-start gap-2 sm:gap-3 pl-2 sm:pl-3">
+                    <Check className="h-3 w-3 sm:h-4 sm:w-4 text-muted-foreground shrink-0 mt-0.5" />
                     <span className="text-xs text-muted-foreground">{feature}</span>
                   </li>
                 ))}
@@ -81,7 +81,7 @@ export const ExpandablePricingCard = ({
       </CardContent>
       <CardFooter>
         <Button 
-          className="w-full" 
+          className="w-full text-sm sm:text-base" 
           variant={highlighted ? "default" : "outline"}
           onClick={onCTAClick}
         >

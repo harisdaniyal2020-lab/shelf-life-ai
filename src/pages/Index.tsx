@@ -42,21 +42,21 @@ const Index = () => {
       <LegalModal open={legalModalOpen} onOpenChange={setLegalModalOpen} type={legalModalType} />
       
       {/* Hero Section */}
-      <section className="pt-32 pb-20 px-4 sm:px-6 lg:px-8">
+      <section className="pt-24 sm:pt-32 pb-12 sm:pb-20 px-4 sm:px-6 lg:px-8">
         <div className="container mx-auto max-w-6xl">
-          <div className="flex flex-col items-center text-center space-y-12">
-            <div className="space-y-8 animate-fade-in max-w-4xl">
-              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight hover:scale-105 transition-transform duration-300">
+          <div className="flex flex-col items-center text-center space-y-8 sm:space-y-12">
+            <div className="space-y-6 sm:space-y-8 animate-fade-in max-w-4xl px-2">
+              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight hover:scale-105 transition-transform duration-300">
                 Your Home, Never Empty Again.
               </h1>
-              <p className="text-xl text-muted-foreground max-w-2xl mx-auto animate-fade-in">
+              <p className="text-lg sm:text-xl text-muted-foreground max-w-2xl mx-auto animate-fade-in px-2">
                 Track food, toiletries, and cleaners automatically—alerts before you run out.
               </p>
-              <Button size="lg" className="text-lg px-8 py-6 h-auto hover:scale-105 transition-transform duration-300" onClick={scrollToPricing}>
+              <Button size="lg" className="text-base sm:text-lg px-6 sm:px-8 py-4 sm:py-6 h-auto hover:scale-105 transition-transform duration-300" onClick={scrollToPricing}>
                 Get Started for Free
               </Button>
             </div>
-            <div className="animate-fade-in w-full max-w-3xl">
+            <div className="animate-fade-in w-full max-w-3xl px-2">
               <img 
                 src={heroImage} 
                 alt="Smart home inventory management system" 
@@ -68,23 +68,23 @@ const Index = () => {
       </section>
 
       {/* Social Proof */}
-      <section className="py-16 px-4 sm:px-6 lg:px-8 bg-card/80 backdrop-blur-sm border-y border-border">
+      <section className="py-12 sm:py-16 px-4 sm:px-6 lg:px-8 bg-card/80 backdrop-blur-sm border-y border-border">
         <div className="container mx-auto max-w-6xl">
-          <div className="flex flex-col md:flex-row items-start gap-12 animate-slide-in">
-            <div className="flex flex-col gap-6 md:w-1/3">
+          <div className="flex flex-col md:flex-row items-start gap-8 sm:gap-12 animate-slide-in">
+            <div className="flex flex-col gap-4 sm:gap-6 md:w-1/3 w-full">
               <h3 className="text-3xl font-bold text-foreground animate-fade-in">Featured On</h3>
-              <div className="grid grid-cols-2 gap-4">
-                <div className="bg-background/80 p-4 rounded-lg hover:scale-105 transition-transform duration-300 flex items-center justify-center">
-                  <img src={techcrunchLogo} alt="TechCrunch" className="w-full h-12 object-contain" />
+              <div className="grid grid-cols-2 gap-3 sm:gap-4">
+                <div className="bg-background/80 p-3 sm:p-4 rounded-lg hover:scale-105 transition-transform duration-300 flex items-center justify-center light:shadow-lg">
+                  <img src={techcrunchLogo} alt="TechCrunch" className="w-full h-10 sm:h-12 object-contain light:drop-shadow-md" />
                 </div>
-                <div className="bg-background/80 p-4 rounded-lg hover:scale-105 transition-transform duration-300 flex items-center justify-center">
-                  <img src={producthuntLogo} alt="Product Hunt" className="w-full h-12 object-contain" />
+                <div className="bg-background/80 p-3 sm:p-4 rounded-lg hover:scale-105 transition-transform duration-300 flex items-center justify-center light:shadow-lg">
+                  <img src={producthuntLogo} alt="Product Hunt" className="w-full h-10 sm:h-12 object-contain light:drop-shadow-md" />
                 </div>
-                <div className="bg-background/80 p-4 rounded-lg hover:scale-105 transition-transform duration-300 flex items-center justify-center">
-                  <img src={fastcompanyLogo} alt="Fast Company" className="w-full h-12 object-contain" />
+                <div className="bg-background/80 p-3 sm:p-4 rounded-lg hover:scale-105 transition-transform duration-300 flex items-center justify-center light:shadow-lg">
+                  <img src={fastcompanyLogo} alt="Fast Company" className="w-full h-10 sm:h-12 object-contain light:drop-shadow-md" />
                 </div>
-                <div className="bg-background/80 p-4 rounded-lg hover:scale-105 transition-transform duration-300 flex items-center justify-center">
-                  <img src={thevergeLogo} alt="The Verge" className="w-full h-12 object-contain" />
+                <div className="bg-background/80 p-3 sm:p-4 rounded-lg hover:scale-105 transition-transform duration-300 flex items-center justify-center light:shadow-lg">
+                  <img src={thevergeLogo} alt="The Verge" className="w-full h-10 sm:h-12 object-contain light:drop-shadow-md" />
                 </div>
               </div>
             </div>
@@ -101,12 +101,12 @@ const Index = () => {
       </section>
 
       {/* Problem Section */}
-      <section className="py-24 px-4 sm:px-6 lg:px-8 bg-background/95">
-        <div className="container mx-auto max-w-4xl text-center">
-          <h2 className="text-3xl sm:text-4xl font-bold mb-6 animate-fade-in hover:scale-105 transition-transform duration-300">
+      <section className="py-16 sm:py-24 px-4 sm:px-6 lg:px-8 bg-background/95">
+        <div className="container mx-auto max-w-4xl text-center px-2">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4 sm:mb-6 animate-fade-in hover:scale-105 transition-transform duration-300">
             Is Household Management a Constant Juggle?
           </h2>
-          <p className="text-lg text-muted-foreground leading-relaxed animate-fade-in">
+          <p className="text-base sm:text-lg text-muted-foreground leading-relaxed animate-fade-in">
             From rotting produce to empty toothpaste tubes, household management is a constant juggle. 
             You overbuy, underbuy, and waste money on expired items. You need a central system to know 
             exactly what's in your home, when it expires, and when to restock.
@@ -115,12 +115,12 @@ const Index = () => {
       </section>
 
       {/* Value / Outcomes Section */}
-      <section id="features" className="py-24 px-4 sm:px-6 lg:px-8 bg-card/70 backdrop-blur-sm border-y border-border">
+      <section id="features" className="py-16 sm:py-24 px-4 sm:px-6 lg:px-8 bg-card/70 backdrop-blur-sm border-y border-border">
         <div className="container mx-auto">
-          <h2 className="text-3xl sm:text-4xl font-bold text-center mb-16 animate-fade-in hover:scale-105 transition-transform duration-300">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-center mb-8 sm:mb-12 lg:mb-16 animate-fade-in hover:scale-105 transition-transform duration-300 px-2">
             Unlock a Smarter, More Organized Home
           </h2>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8 max-w-6xl mx-auto px-2">
             {[
               {
                 icon: TrendingDown,
@@ -147,9 +147,9 @@ const Index = () => {
                 text: "Eliminate emergency runs to the store for forgotten items, 90% of the time"
               }
             ].map((benefit, index) => (
-              <div key={index} className="flex flex-col items-center justify-center text-center gap-4 p-8 bg-background/80 rounded-lg shadow-sm hover:shadow-xl hover:scale-105 transition-all duration-300 animate-fade-in">
-                <benefit.icon className="w-8 h-8 text-primary shrink-0 hover:scale-125 transition-transform duration-300" />
-                <p className="text-foreground leading-relaxed">{benefit.text}</p>
+              <div key={index} className="flex flex-col items-center justify-center text-center gap-3 sm:gap-4 p-4 sm:p-6 lg:p-8 bg-card/90 light:bg-background/95 light:shadow-lg rounded-lg shadow-sm hover:shadow-xl hover:scale-105 transition-all duration-300 animate-fade-in border border-border/50">
+                <benefit.icon className="w-7 h-7 sm:w-8 sm:h-8 text-primary shrink-0 hover:scale-125 transition-transform duration-300" />
+                <p className="text-sm sm:text-base text-foreground leading-relaxed">{benefit.text}</p>
               </div>
             ))}
           </div>
@@ -157,12 +157,12 @@ const Index = () => {
       </section>
 
       {/* How It Works */}
-      <section id="how-it-works" className="py-24 px-4 sm:px-6 lg:px-8 bg-background/95">
+      <section id="how-it-works" className="py-16 sm:py-24 px-4 sm:px-6 lg:px-8 bg-background/95">
         <div className="container mx-auto">
-          <h2 className="text-3xl sm:text-4xl font-bold text-center mb-16 animate-fade-in hover:scale-105 transition-transform duration-300">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-center mb-8 sm:mb-12 lg:mb-16 animate-fade-in hover:scale-105 transition-transform duration-300 px-2">
             Simple Steps to a Smarter Home
           </h2>
-          <div className="grid md:grid-cols-3 gap-12 max-w-5xl mx-auto">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 sm:gap-10 lg:gap-12 max-w-5xl mx-auto px-2">
             <AnimatedFeatureStep 
               number="1"
               icon={ScanBarcode}
@@ -189,12 +189,12 @@ const Index = () => {
       </section>
 
       {/* Deep Proof / Testimonial */}
-      <section className="py-24 px-4 sm:px-6 lg:px-8 bg-card/70 backdrop-blur-sm border-y border-border">
+      <section className="py-16 sm:py-24 px-4 sm:px-6 lg:px-8 bg-card/70 backdrop-blur-sm border-y border-border">
         <div className="container mx-auto max-w-5xl">
-          <h2 className="text-3xl sm:text-4xl font-bold text-center mb-12 animate-fade-in hover:scale-105 transition-transform duration-300">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-center mb-8 sm:mb-12 animate-fade-in hover:scale-105 transition-transform duration-300 px-2">
             Real Results, Real Savings
           </h2>
-          <div className="grid md:grid-cols-2 gap-12 items-center">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 sm:gap-12 items-center px-2">
             <div className="animate-fade-in">
               <img 
                 src={mariaImage} 
@@ -218,9 +218,9 @@ const Index = () => {
       </section>
 
       {/* FAQ Section */}
-      <section id="faq" className="py-24 px-4 sm:px-6 lg:px-8 bg-background/95">
-        <div className="container mx-auto max-w-3xl">
-          <h2 className="text-3xl sm:text-4xl font-bold text-center mb-12 animate-fade-in hover:scale-105 transition-transform duration-300">
+      <section id="faq" className="py-16 sm:py-24 px-4 sm:px-6 lg:px-8 bg-background/95">
+        <div className="container mx-auto max-w-3xl px-2">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-center mb-8 sm:mb-12 animate-fade-in hover:scale-105 transition-transform duration-300">
             Questions? We've Got Answers
           </h2>
           <Accordion type="single" collapsible className="space-y-4">
@@ -251,13 +251,13 @@ const Index = () => {
       </section>
 
       {/* Pricing Section */}
-      <section id="pricing" className="py-24 px-4 sm:px-6 lg:px-8 bg-card/70 backdrop-blur-sm border-y border-border">
+      <section id="pricing" className="py-16 sm:py-24 px-4 sm:px-6 lg:px-8 bg-card/70 backdrop-blur-sm border-y border-border">
         <div className="container mx-auto">
-          <h2 className="text-3xl sm:text-4xl font-bold text-center mb-4 animate-fade-in hover:scale-105 transition-transform duration-300">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-center mb-3 sm:mb-4 animate-fade-in hover:scale-105 transition-transform duration-300 px-2">
             Choose Your ShelfLife Plan
           </h2>
-          <p className="text-center text-muted-foreground mb-16">Start with a 30-day free trial. No credit card required.</p>
-          <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+          <p className="text-center text-sm sm:text-base text-muted-foreground mb-8 sm:mb-12 lg:mb-16 px-2">Start with a 30-day free trial. No credit card required.</p>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 max-w-4xl mx-auto px-2">
             <ExpandablePricingCard 
               title="Home Hub"
               price="$6.99"
@@ -312,26 +312,26 @@ const Index = () => {
       </section>
 
       {/* Final CTA */}
-      <section className="py-24 px-4 sm:px-6 lg:px-8 bg-background/95">
-        <div className="container mx-auto max-w-4xl text-center space-y-8">
-          <div className="space-y-4">
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold animate-fade-in hover:scale-105 transition-transform duration-300">
+      <section className="py-16 sm:py-24 px-4 sm:px-6 lg:px-8 bg-background/95">
+        <div className="container mx-auto max-w-4xl text-center space-y-6 sm:space-y-8 px-2">
+          <div className="space-y-3 sm:space-y-4">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold animate-fade-in hover:scale-105 transition-transform duration-300">
               Stop Waste & Stay Stocked
             </h2>
-            <p className="text-xl sm:text-2xl text-muted-foreground animate-fade-in">
+            <p className="text-lg sm:text-xl md:text-2xl text-muted-foreground animate-fade-in">
               Get ShelfLife AI Free for 30 Days
             </p>
           </div>
-          <Button size="lg" className="text-lg px-12 py-6 h-auto animate-fade-in hover:scale-105 transition-transform duration-300" onClick={() => setIsNewsletterOpen(true)}>
+          <Button size="lg" className="text-base sm:text-lg px-8 sm:px-12 py-4 sm:py-6 h-auto animate-fade-in hover:scale-105 transition-transform duration-300" onClick={() => setIsNewsletterOpen(true)}>
             Subscribe to the Newsletter
           </Button>
         </div>
       </section>
 
       {/* Footer */}
-      <footer className="py-12 px-4 sm:px-6 lg:px-8 border-t border-border bg-card/70 backdrop-blur-sm">
+      <footer className="py-8 sm:py-12 px-4 sm:px-6 lg:px-8 border-t border-border bg-card/70 backdrop-blur-sm">
         <div className="container mx-auto">
-          <div className="flex flex-col gap-8">
+          <div className="flex flex-col gap-6 sm:gap-8">
             <div className="flex flex-col md:flex-row justify-between items-center gap-6">
               <p className="text-sm text-muted-foreground">
                 © 2025 ShelfLife AI. All rights reserved.

@@ -128,4 +128,17 @@ All colors MUST be HSL.
     80% { transform: rotate(-5deg); }
     90% { transform: rotate(5deg); }
   }
+
+  /* Light mode enhancements */
+  :root .light\:shadow-lg {
+    box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.15), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+  }
+
+  :root .light\:drop-shadow-md {
+    filter: drop-shadow(0 4px 6px rgb(0 0 0 / 0.15));
+  }
+
+  :root .light\:bg-background\/95 {
+    background-color: hsl(var(--background) / 0.95);
+  }
 }
