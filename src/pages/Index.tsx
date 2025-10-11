@@ -11,10 +11,10 @@ import { Accordion } from "@/components/ui/accordion";
 import { ScanBarcode, Bell, ShoppingCart, TrendingDown, Clock, ChefHat, Shield, Sparkles, Facebook, Instagram, Linkedin, X } from "lucide-react";
 import heroImage from "@/assets/hero-illustration.png";
 import mariaImage from "@/assets/maria-testimonial.jpg";
+import redditLogo from "@/assets/logo-reddit.png";
 import techcrunchLogo from "@/assets/logo-techcrunch.png";
-import producthuntLogo from "@/assets/logo-producthunt.png";
-import fastcompanyLogo from "@/assets/logo-fastcompany.png";
-import thevergeLogo from "@/assets/logo-theverge.png";
+import mashableLogo from "@/assets/logo-mashable.png";
+import gqLogo from "@/assets/logo-gq.png";
 const Index = () => {
   const [isContactFormOpen, setIsContactFormOpen] = useState(false);
   const [isNewsletterOpen, setIsNewsletterOpen] = useState(false);
@@ -68,16 +68,16 @@ const Index = () => {
               <h3 className="text-3xl font-bold text-foreground animate-fade-in text-center">Featured On</h3>
               <div className="grid grid-cols-2 gap-4">
                 <div className="bg-background/80 p-4 rounded-lg hover:scale-105 transition-transform duration-300 flex items-center justify-center">
+                  <img src={redditLogo} alt="Reddit" className="w-full h-12 object-contain" />
+                </div>
+                <div className="bg-background/80 p-4 rounded-lg hover:scale-105 transition-transform duration-300 flex items-center justify-center">
                   <img src={techcrunchLogo} alt="TechCrunch" className="w-full h-12 object-contain" />
                 </div>
                 <div className="bg-background/80 p-4 rounded-lg hover:scale-105 transition-transform duration-300 flex items-center justify-center">
-                  <img src={producthuntLogo} alt="Product Hunt" className="w-full h-12 object-contain" />
+                  <img src={mashableLogo} alt="Mashable" className="w-full h-12 object-contain" />
                 </div>
                 <div className="bg-background/80 p-4 rounded-lg hover:scale-105 transition-transform duration-300 flex items-center justify-center">
-                  <img src={fastcompanyLogo} alt="Fast Company" className="w-full h-12 object-contain" />
-                </div>
-                <div className="bg-background/80 p-4 rounded-lg hover:scale-105 transition-transform duration-300 flex items-center justify-center">
-                  <img src={thevergeLogo} alt="The Verge" className="w-full h-12 object-contain" />
+                  <img src={gqLogo} alt="GQ" className="w-full h-12 object-contain" />
                 </div>
               </div>
             </div>
